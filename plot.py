@@ -20,9 +20,9 @@ data = np.loadtxt(filename, skiprows=32,delimiter=",")   # Attempts to load file
 # plot raw-data/Sp15_245L_sect-001_group-1_glass.raw
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
-max= (len(data))
-strain= data[0:max,6]
-stress= data[0:max,2]
+max= (len(data)-1)
+strain= data[0:max,7]
+stress= data[0:max,3]
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
