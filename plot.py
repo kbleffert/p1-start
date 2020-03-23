@@ -24,6 +24,10 @@ max= (len(data)-1)
 strain= data[0:max,7]
 stress= data[0:max,3]
 
+plt.plot(stress,strain,linestyle='-')
+plt.xlabel("Strain [Ext%]")
+plt.ylabel("Stress [Mpa]")
+
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
 # Edit the files (use git liberally here!) to make them more usable
