@@ -30,6 +30,8 @@ plt.plot(stress,strain,color='b',linestyle='-', label=mylabel)
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
+plt.legend(loc='best')
+
 plt.show()
 
 ## Part 2
