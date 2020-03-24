@@ -26,7 +26,7 @@ stress= data[0:max,3]
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
-plt.plot(stress,strain,color='b',linestyle='-', label=mylabel)
+plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
