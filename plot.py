@@ -25,11 +25,12 @@ strain= data[0:max,7]
 stress= data[0:max,3]
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
-plt.show()
 
 plt.plot(stress,strain,color='b',linestyle='-', label=mylabel)
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
+plt.title(filename)
+plt.show()
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
