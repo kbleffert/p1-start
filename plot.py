@@ -20,6 +20,7 @@ data = np.loadtxt(filename, skiprows=32,delimiter=",")   # Attempts to load file
 # plot raw-data/Sp15_245L_sect-001_group-1_glass.raw
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
+
 max= (len(data)-1)
 strain= data[0:max,7]
 stress= data[0:max,3]
@@ -27,10 +28,12 @@ iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
 plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
+
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
 plt.legend(loc='best')
+plt.grid(True)
 
 plt.show()
 
