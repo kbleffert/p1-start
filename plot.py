@@ -29,6 +29,16 @@ mylabel= filename[iDash+1:-4]
 
 plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
 
+def linearFit(x,y):
+	
+	a1,a0= np.polyfit(x,y,1)
+	fit=np.poly1d((a1,a0))
+	array=np.arange(100000000)
+	return array, fit(array)
+
+m,b=linearFit(-(stress),-(strain))
+plt.plot(m,b,'k-',linewidth=1,label='linear fit')
+	
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
