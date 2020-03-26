@@ -27,17 +27,21 @@ stress= data[0:max,3]
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
-plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
-
-def linearFit(x,y):
+#def linearFit(x,y):
 	
-	a1,a0= np.polyfit(x,y,1)
-	fit=np.poly1d((a1,a0))
-	array=np.arange(100000000)
-	return array, fit(array)
+#	a1,a0= np.polyfit(x,y,1)
+#	fit=np.poly1d((a1,a0))
+#	array=np.arange(100000000)
+#	return array, fit(array)
 
-m,b=linearFit(-(stress),-(strain))
-plt.plot(m,b,'k-',linewidth=1,label='linear fit')
+#m,b=linearFit(stress,strain)
+#plt.plot(m,b,'k-',linewidth=1,label='linear fit')
+
+fit= np.polyfit(strain,stress,1)
+linX=np.linspace(min(strain), max(strain))
+linY=np.polyval(fit,linX)
+plt.plot(linX,linY,color='r',linestyle='-')
+plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
 	
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
@@ -49,8 +53,7 @@ plt.show()
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
-# Edit the files (use git liberally here!) to make them more usable
-
+#git clone https://github.com/dracula/terminal-app.git# Edit the files (use git liberally here!) to mak#e them more usable
 
 ## Part 3
 # Use linear regression to calculate the slope of the linear part of
