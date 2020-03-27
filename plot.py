@@ -38,6 +38,9 @@ plt.ylabel("Stress [Mpa]")
 plt.title(filename)
 plt.legend(loc='best')
 plt.grid(True)
+
+plt.savefig(filename+'.pdf')
+
 plt.show()
 
 print("Young's Modulus: "+str(a0)+" MPa")
