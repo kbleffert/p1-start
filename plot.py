@@ -21,9 +21,9 @@ data = np.loadtxt(filename, skiprows=32,delimiter=",")   # Attempts to load file
 # Make sure to include axis labels and units!
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
 
-max= (len(data)-1)
-strain= data[0:max,7]
-stress= data[0:max,3]
+maxLen= (len(data)-1)
+strain= data[0:maxLen,7]
+stress= data[0:maxLen,3]
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
