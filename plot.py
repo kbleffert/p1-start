@@ -38,7 +38,7 @@ plt.grid(True)
 a0,a1= np.polyfit(strain,stress,1)
 linX=np.linspace(min(strain), max(strain))
 linY=np.polyval([a0,a1],linX)
-plt.plot(linX,linY,color='r',linestyle='-')
+plt.plot(linX,linY,color='r',linestyle='--', label='linear fit')
 	
 plt.show()
 
