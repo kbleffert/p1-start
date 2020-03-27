@@ -38,9 +38,11 @@ plt.grid(True)
 a0,a1= np.polyfit(strain,stress,1)
 linX=np.linspace(min(strain), max(strain))
 linY=np.polyval([a0,a1],linX)
-plt.plot(linX,linY,color='r',linestyle='--', label='linear fit')
+#plt.plot(linX,linY,color='r',linestyle='--', label='linear fit')
 	
 plt.show()
+
+print("Young's Modulus: "+str(a0)+" MPa")
 
 ## Part 2
 # Check to see if your code in part 1 will plot all of the files in raw-data/
