@@ -28,18 +28,16 @@ stress= -data[0:maxLen,3]
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
-plt.plot(stress,strain,color='b',linestyle='-', label=mylabel)
+a0,a1= np.polyfit(strain,stress,1)
+	
+plt.plot(strain,stress,color='b',linestyle='-', label=mylabel)
+plt.plot(strain,(a0*strain)+a1,color='r',linestyle='--',label='linear fit')
+
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
 plt.legend(loc='best')
 plt.grid(True)
-
-a0,a1= np.polyfit(strain,stress,1)
-linX=np.linspace(min(strain), max(strain))
-linY=np.polyval([a0,a1],linX)
-#plt.plot(linX,linY,color='r',linestyle='--', label='linear fit')
-	
 plt.show()
 
 print("Young's Modulus: "+str(a0)+" MPa")
