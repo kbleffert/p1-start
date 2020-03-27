@@ -22,33 +22,24 @@ data = np.loadtxt(filename, skiprows=32,delimiter=",")   # Attempts to load file
 # plt.plot(xdata,ydata, arguments-to-make-plot-pretty)
 
 maxLen= (len(data)-1)
-strain= data[0:maxLen,7]
-stress= data[0:maxLen,3]
+strain= -data[0:maxLen,7]
+stress= -data[0:maxLen,3]
+
 iDash= filename.rindex('-')
 mylabel= filename[iDash+1:-4]
 
-#def linearFit(x,y):
-	
-#	a1,a0= np.polyfit(x,y,1)
-#	fit=np.poly1d((a1,a0))
-#	array=np.arange(100000000)
-#	return array, fit(array)
-
-#m,b=linearFit(stress,strain)
-#plt.plot(m,b,'k-',linewidth=1,label='linear fit')
-
-fit= np.polyfit(strain,stress,1)
-linX=np.linspace(min(strain), max(strain))
-linY=np.polyval(fit,linX)
-plt.plot(linX,linY,color='r',linestyle='-')
-plt.plot(-(stress),-(strain),color='b',linestyle='-', label=mylabel)
-	
+plt.plot(stress,strain,color='b',linestyle='-', label=mylabel)
 plt.xlabel("Strain [Ext%]")
 plt.ylabel("Stress [Mpa]")
 plt.title(filename)
 plt.legend(loc='best')
 plt.grid(True)
 
+a0,a1= np.polyfit(strain,stress,1)
+linX=np.linspace(min(strain), max(strain))
+linY=np.polyval([a0,a1],linX)
+plt.plot(linX,linY,color='r',linestyle='-')
+	
 plt.show()
 
 ## Part 2
