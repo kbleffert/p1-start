@@ -5,7 +5,7 @@
   
 ## Overview 
   
-This project plots stress 
+This project plots stress versus strain data on two axis and applies a linear fit in order to calculate Young's Modulus of the sample. 
   
 ## Compiling and Using  
   
